@@ -11,11 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('roles', function (Blueprint $table) {
-            $table->uuid('id')->primary();
-            $table->string('name');
-            $table->timestamps();
-        });
+        Schema::create('role_user', function (Blueprint $table) {
+            $table->foreignUuid('role_id')->constrained();
+            $table->foreignUuid('user_id')->constrained();        });
     }
 
     /**
@@ -23,6 +21,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('roles');
+        Schema::dropIfExists('role_user');
     }
 };
