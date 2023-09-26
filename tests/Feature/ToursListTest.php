@@ -50,7 +50,7 @@ class ToursListTest extends TestCase
         $response = $this->get('/api/v1/travels/' . $travel->slug . '/tours');
 
         $response->assertStatus(200);
-        $response->assertJsonCount(1, 'data');
+        $response->assertJsonCount(1    , 'data');
         $response->assertJsonPath('meta.last_page', 2);
     }
 }
